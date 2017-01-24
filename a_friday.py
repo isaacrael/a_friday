@@ -14,6 +14,7 @@ Planning
 Modules Needed
 
 from datetime import *
+from calendar import *
 
 Classes
 
@@ -30,25 +31,34 @@ a_friday = initial_a_friday_date + 14 days
 
 
 
-
 """
 
 from datetime import *
+from calendar import *
 
 
 class AFriday(object):
     def __init__(self):
-        self.initial_a_friday_date = (1, 6, 17)
-        print("WTH")
-        for item in self.initial_a_friday_date:
-            print(item)
-            print("Testing printing")
+        self.initial_a_friday_date = "1/6/17"
+        self.increment = 0
+        print("The A Friday dates in the year 2017 are\n")
+        self.date_1 = datetime.strptime(self.initial_a_friday_date, "%m/%d/%y")
+        print(self.date_1)
+        while (self.increment < 12):
+            self.increment = self.increment  + 1
+            self.next_a_friday_date = self.date_1 + timedelta(days=14)
+            print(self.next_a_friday_date)
+            self.next_a_friday_date = self.next_a_friday_date + timedelta(days=14)
+            print(self.next_a_friday_date)
+
+
 #    def __str__(self):
 
 
 
 def main():
         new_date = AFriday()
+
 
 if __name__ == "__main__":
         main()
